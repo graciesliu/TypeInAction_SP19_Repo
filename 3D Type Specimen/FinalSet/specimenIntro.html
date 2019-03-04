@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Abacus</title>
+	<link rel="stylesheet" href="https://use.typekit.net/ccn0rib.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body{
+			background-color: #21364F;
+			overflow: hidden;
+			font-family: basic-sans, sans-serif;
+            font-weight: 200;
+			color: #21364F;
+			font-size: 12px;
+		}
+		.title{
+			position: absolute;
+			top: 45%;
+			left: 8%;
+            width: 40%;
+            min-height: 10%;
+		}
+        .description{
+            color: white;
+            font-size: 1.2rem;
+            width: 35%;
+            letter-spacing: 1px;
+            position: absolute;
+            top: 62%;
+            left: 15%;
+        }
+		.pattern{
+			width: 200%;
+            min-height: 10%;
+			position: absolute;
+		}
+        .row{
+            height:0;
+        }
+        .rowG{
+            top:-6%;
+            left:-1%;
+        }
+        .rowT{
+            bottom:-6%;
+            left:-1%;
+        }
+        .rowB{
+            left: 57%;
+            top: 20%;
+        }
+        .rowR{
+            left: 57%;
+            top: 43%;
+        }
+        .rowY{
+            left: 57%;
+            bottom: 20%;
+        }
+		div{
+			text-decoration: none;
+			color: #21364F;
+		}
+        .rowR,.rowB,.rowY{
+            transition: transform 2000ms ease;
+        }
+        .bg{
+            position: absolute;
+            transition: transform 1000ms ease;
+            height: 1px;
+            width: 1000px;
+            left: 60%;
+            background-color: white;
+            z-index: 2;
+        }
+        .bg-R{
+            background-color: #EB666A;
+            top: 50%;
+        }
+        .bg-B{
+            background-color: #889BCF;
+            top: 26%;
+        }
+        .bg-Y{
+            background-color: #FBF175;
+            bottom: 26%;
+        }
+        .label{
+            position: relative;
+            z-index: 30;
+            left: 58.3%;
+            top: 177px;
+            opacity: .4;
+            filter: invert(100%);
+            transition: opacity 400ms ease;
+        }
+        .labelR{
+            top: 360px;
+        }
+        .labelY{
+            top: 546px;
+        }
+        .lbl-ltr{
+            z-index: 30;
+/*            background-color: white;*/
+            height: 40px;
+            margin: 5px;
+            margin-right: 37px;
+/*            width: 100px;*/
+        }
+        .labelR .ltr3{
+            margin-right: 30px;
+        }
+        .labelR .ltr5{
+            margin-right: 40px;
+        }
+        .labelY .ltr5{
+            margin-right:32px;
+        }
+	</style>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $("body").hide();
+            $("body").fadeIn(1000);
+            var z = 1;
+            
+            $(".R").mouseenter(function(){
+                $(".rowR").animate({left:"52%"},1000,"swing");
+                $(".bg-R").animate({left:"53%"},1000,"swing");
+                $(".rowR").css("transform","scale(1,1.2)");
+                $(".labelR").animate({left:"53.3%"},1000,"swing"); 
+                $(".labelR").css("filter","invert(0%)");
+                $(".labelR").css("opacity",".8");
+            })
+            $(".R").mouseleave(function(){
+                $(".rowR").animate({left:"57%"},1000,"swing");
+                $(".bg-R").animate({left:"60%"},1000,"swing");               $(".labelR").animate({left:"58.3%"},1000,"swing");
+                $(".rowR").css("transform","scale(1,1)");
+                $(".labelR").css("filter","invert(100%)");
+                $(".labelR").css("opacity",".4");
+                $(".bg-R").css("transform","scale(1,1)",function(){
+                    $(".rowB").clearQueue();
+                });
+            })
+           $(".R").click(function(){
+               $(".label").fadeOut(800,"swing");
+               $(".bg-R").animate({left:"-1%"},1000,"swing");
+               $(".labelR").animate({left:"45%",top:"200px"},1000,"swing");
+               $(".rowR").animate({left:"-1%"},1000,"swing",function(){
+                   $(".rowR").css("transform","scale(2,20)");
+                   $(".rowR").css("z-index","3");
+                   $(".bg-R").css("transform","scale(1800,1000)");
+               });
+               setTimeout("location.href = 'examples.html';",2000);
+           })
+            
+            $(".B").mouseenter(function(){
+                $(".rowB").animate({left:"52%"},1000,"swing");
+                $(".bg-B").animate({left:"53%"},1000,"swing");               $(".labelB").animate({left:"53.3%"},1000,"swing");
+                $(".rowB").css("transform","scale(1,1.2)");
+                $(".labelB").css("filter","invert(0%)");
+                $(".labelB").css("opacity",".8");
+            })
+            $(".B").mouseleave(function(){
+                $(".rowB").animate({left:"57%"},1000,"swing");
+                $(".bg-B").animate({left:"60%"},1000,"swing");
+                $(".labelB").animate({left:"58.3%"},1000,"swing");
+                $(".rowB").css("transform","scale(1,1)");
+                $(".labelB").css("filter","invert(100%)");
+                $(".labelB").css("opacity",".4");
+                $(".bg-B").css("transform","scale(1,1)",function(){
+                    $(".rowR").clearQueue();
+                });
+            })
+           $(".B").click(function(){
+               $(".label").fadeOut(800,"swing");
+               $(".labelB").animate({left:"-1%"},1000,"swing");
+               $(".bg-B").animate({left:"-1%"},1000,"swing");
+               $(".rowB").animate({left:"-1%"},1000,"swing",function(){
+                   $(".rowB").css("transform","scale(2,20)");
+                   $(".rowB").css("z-index","3");
+                   $(".bg-B").css("transform","scale(1800,1500)");
+               });
+               setTimeout("location.href = 'origins.html';",2000);
+           })
+            
+        $(".Y").mouseenter(function(){
+            $(".rowY").animate({left:"52%"},1000,"swing");
+            $(".bg-Y").animate({left:"53%"},1000,"swing");               $(".labelY").animate({left:"53.3%"},1000,"swing");
+            $(".rowY").css("transform","scale(1,1.2)");
+            $(".labelY").css("filter","invert(0%)");
+            $(".labelY").css("opacity",".8");
+        })
+        $(".Y").mouseleave(function(){
+            $(".rowY").animate({left:"57%"},1000,"swing");
+            $(".bg-Y").animate({left:"60%"},1000,"swing");
+            $(".labelY").animate({left:"58.3%"},1000,"swing");
+            $(".rowY").css("transform","scale(1,1)");
+            $(".labelY").css("filter","invert(100%)");
+            $(".labelY").css("opacity",".4");
+            $(".bg-Y").css("transform","scale(1,1)",function(){
+                    $(".rowY").clearQueue();
+            });
+        }) 
+       $(".Y").clearQueue();
+       $(".Y").click(function(){
+           $(".label").fadeOut(800,"swing");
+           $(".bg-Y").animate({left:"-1%"},1000,"swing");
+           $(".rowY").animate({left:"-1%"},1000,"swing",function(){
+               $(".rowY").css("transform","scale(2,20)");
+               $(".rowY").css("z-index","3");
+               $(".bg-Y").css("transform","scale(1800,1500)");
+           });
+            setTimeout("location.href = 'set.html';",2000);
+       })    
+            
+            
+        })
+    </script>
+</head> 			
+<body>
+	<img class="title" src="title.gif">
+    <div class="description">a classy pixel typeface inspired by its namesake</div>
+	<img class="rowT pattern" src="rowT.svg">
+        <div class="B row">
+        <img class="rowB pattern" src="rowB.svg">
+        <div class="label labelB">
+            <img class="lbl-ltr ltr1" src="bw134.svg">
+            <img class="lbl-ltr ltr2" src="bw117.svg">
+            <img class="lbl-ltr ltr3" src="bw125.svg">
+            <img class="lbl-ltr ltr4" src="bw123.svg">
+            <img class="lbl-ltr ltr5" src="bw125.svg">
+            <img class="lbl-ltr ltr6" src="bw130.svg">
+            <img class="lbl-ltr ltr7" src="bw132.svg">
+        </div>
+        <div class="bg-B bg"></div>
+    </div>
+    <div class="R row">
+        <img class="rowR pattern" src="rowR.svg">
+        <div class="label labelR">
+            <img class="lbl-ltr ltr1" src="bw137.svg">
+            <img class="lbl-ltr ltr2" src="bw116.svg">
+            <img class="lbl-ltr ltr3" src="bw122.svg">
+            <img class="lbl-ltr ltr4" src="bw128.svg">
+            <img class="lbl-ltr ltr5" src="bw135.svg">
+            <img class="lbl-ltr ltr6" src="bw141.svg">
+            <img class="lbl-ltr ltr7" src="bw137.svg">
+            <img class="lbl-ltr ltr8" src="bw132.svg">
+        </div>
+        <div class="bg-R bg"></div>
+    </div>
+    <div class="Y row">
+        <img class="rowY pattern" src="rowY.svg">
+        <div class="label labelY">
+            <img class="lbl-ltr ltr1" src="bw123.svg">
+            <img class="lbl-ltr ltr2" src="bw141.svg">
+            <img class="lbl-ltr ltr3" src="bw139.svg">
+            <img class="lbl-ltr ltr4" src="bw135.svg">
+            <img class="lbl-ltr ltr5" src="bw136.svg">
+            <img class="lbl-ltr ltr6" src="bw132.svg">
+        </div>
+        <div class="bg-Y bg"></div>
+    </div>
+    
+    
+    
+    <img class="rowG pattern" src="rowG.svg">
+
+<!--	<div class="originsNav btn">Origins</div>-->
+	
+
+<!--	<div class="examplesNav btn">Examples</div>-->
+	
+
+<!--	<div class="setNav btn">Full Set</div>-->
+	
+    
+</body>
+</html>

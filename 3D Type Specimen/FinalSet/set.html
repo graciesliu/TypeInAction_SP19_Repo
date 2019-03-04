@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Abacus Origins</title>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-color: #FBF175;
+                font-size: 12px;
+            }
+            h1{
+                position: absolute;
+                z-index: 30;
+                left: 10%;
+                top: 15%;
+                font-family: basic-sans, sans-serif;
+                font-weight: 200;
+                letter-spacing: 5px;
+                color: #21364F;
+                font-size: 1.5rem;
+            }
+            .set{
+                position: absolute;
+                top: 30%;
+                left: 10%;
+                width: 80%;
+            }
+            .backBtn{
+                position: absolute;
+                height: 7%;
+                left: -1%;
+                top: 14%;
+                transition: left 500ms ease;
+            }
+          .backBtn:hover{
+                left: 1%;
+                filter: invert(100%);
+                transition: left 500ms ease;
+            }
+            .toggle{
+                position: absolute;
+                height: 7%;
+                right: 10%;
+                top: 14%;
+                animation: wiggle 4s infinite;
+            }
+            .toggle:hover{
+                filter: invert(50%);
+            }
+            @keyframes wiggle{
+                0%{transform: rotate(0deg)}
+                2%{transform: rotate(15deg)}
+                4%{transform: rotate(-15deg)}
+                6%{transform: rotate(15deg)}
+                8%{transform: rotate(-15deg)}
+                10%{transform: rotate(0deg)}
+                1000%{transform: rotate(0deg)}
+            }
+            .transition-bg{
+                z-index: -1;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("body").hide();
+                $("body").fadeIn(2000);
+
+            
+            console.log("out");
+            $(".set").click(function(){
+                console.log(".set opacity");
+                $("body").css("opacity",".5");
+            })
+            var t = true;
+            console.log(t);
+            $(".toggle").click(function(){
+                console.log("clicked");
+                 if(t==true){
+                    $("body").css("background-color","#21364F");
+                    $(".toggle").css("filter","invert(100%)");
+                    $(".set").attr("src","setColor.svg");
+                    t=false;
+                }else{
+                    $("body").css("background-color","#FBF175");
+                    $(".toggle").css("filter","invert(0%)");
+                    $(".set").attr("src","set.svg");
+                    t=true;
+                }
+            })
+            $(".backBtn").click(function(){
+                $(".main").fadeOut(1000);
+                setTimeout("location.href = 'specimenIntro.html';",0);
+            })
+          })
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <h1>GLYPHS</h1>
+            <img class="set" src="set.svg">
+            <img class="toggle" src="red.svg">
+            <img class="backBtn" src="back.svg">
+        </div>
+        <div class="transition-bg"></div>
+    </body>
+    
+</html>

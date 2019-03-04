@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Abacus Origins</title>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-color: #EB666A;
+            }
+            h1{
+                position: absolute;
+                z-index: 30;
+                left: 10%;
+                top: 15%;
+                font-family: basic-sans, sans-serif;
+                font-weight: 200;
+                letter-spacing: 5px;
+                color: #21364F;
+                font-size: 1.5rem;
+            }
+            .backBtn{
+                position: absolute;
+                height: 7%;
+                left: -1%;
+                top: 14%;
+                transition: left 500ms ease;
+            }            
+            .backBtn:hover{
+                left: 1%;
+                filter: invert(100%);
+                transition: left 500ms ease;
+            }
+            .content{
+                position: absolute;
+                width: 80%;
+                left: 10%;
+                top: 30%;
+                margin-bottom: 300px;
+                transition: filter 300ms ease;
+            }
+            .content:hover{
+                filter: invert(100%);
+                transition: filter 300ms ease;
+            }
+            
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("body").hide();
+                $("body").fadeIn(1500);
+                
+                 $(".backBtn").click(function(){
+                    $("body").fadeOut(1000);
+                    setTimeout("location.href = 'specimenIntro.html';",0);
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1>EXAMPLES</h1>
+        <img class="backBtn" src="back.svg">
+        <img class="content" src="ex.svg">
+    </body>
